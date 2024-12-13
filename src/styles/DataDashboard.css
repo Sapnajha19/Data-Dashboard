@@ -1,5 +1,12 @@
 .dashboardTable {
     border-collapse: collapse;
     text-align: left;
-    padding: 200px;
+}
+
+.heading {
+    text-align: center;
+}
+
+.expand {
+    cursor: pointer;
 }

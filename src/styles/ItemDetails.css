@@ -1,0 +1,15 @@
+.detailsContainer {
+    padding: 20px 60px;
+}
+
+.engagementHistoryList {
+    list-style-type: none;
+}
+
+.label {
+    font-weight: 600;
+}
+
+.value {
+    margin-left: 2px;
+}
