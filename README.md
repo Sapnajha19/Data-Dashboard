@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# Frontend Assignmnet AWEdeet
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Steps to run the project
 
-## Available Scripts
+## Assignment solution.
+1. Added the main dashboard that dynamically displays data from a dummy json file.
+2. Added all the dashboard fields like Name, Engagement score, Reach acc. to the assignment instructions.
+3. Added an expand button on each row of the table, which shows the item details of the selected item in a modal.
+4. Added sorting functionality, to sort the dashboard data based on engagement score and reach both in asc and desc order respectively.
+5. Added filter functionality, to filter the dashboard data based on categories and engagement score.
+6. Added responsive layout for better user experience.
 
-In the project directory, you can run:
+### 1. Clone the Repository
 
-### `npm start`
+Clone this repository to your local machine using Git.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+##
+    git clone https://github.com/your-username/repo-name.git
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+You can find the above clone link by clicking on Code dropdown under HTTPS tab.
 
-### `npm test`
+### 2. Navigate to the project directory
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## 
+    cd repo-name
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 3. Install Dependencies
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 
+    npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 4. Run the Development Server
 
-### `npm run eject`
+##
+    npm start
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+By default, the app will be available at http://localhost:3000. Open this URL in your browser to view the application.
