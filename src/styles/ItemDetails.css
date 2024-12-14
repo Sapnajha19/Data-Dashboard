@@ -13,3 +13,14 @@
 .value {
     margin-left: 2px;
 }
+
+@media (max-width: 480px) {
+    .heading {
+        font-size: 0.95rem;
+    }
+
+    .label,
+    .value {
+        font-size: 0.75rem;
+    }
+}

@@ -16,7 +16,7 @@
     "shares": 100,
     "comments": 70,
     "followers": 40000,
-    "category": "Non-Tech",
+    "category": "Fashion",
     "location": "IND"
   },
   {
@@ -26,7 +26,7 @@
     "shares": 500,
     "comments": 300,
     "followers": 100000,
-    "category": "Non-Tech",
+    "category": "Fashion",
     "location": "IND"
   },
   {
@@ -46,7 +46,7 @@
     "shares": 50,
     "comments": 20,
     "followers": 1500,
-    "category": "Tech",
+    "category": "Sport",
     "location": "USA"
   }
 ]

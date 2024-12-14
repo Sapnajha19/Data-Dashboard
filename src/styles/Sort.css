@@ -2,8 +2,10 @@
     text-align: right;
     margin-bottom: 10px;
 }
+
 @media (max-width: 480px) {
-    .sortSelect {
-      font-size: 0.75rem;
+    .sortSelect,
+    .sortOrder {
+        font-size: 0.75rem;
     }
-  }
+}
