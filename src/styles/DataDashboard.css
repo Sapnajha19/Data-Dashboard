@@ -1,12 +1,50 @@
+.dashboard {
+    margin-top: 40px;
+}
+
+.dashboardTableContainer {
+    margin-top: 60px;
+}
+
+.dashboardTable th,
+.dashboardTable td {
+    padding: 10px 14px;
+    text-align: center;
+}
+
 .dashboardTable {
     border-collapse: collapse;
-    text-align: left;
+}
+
+.dashboardTable th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.dashboardTable td {
+    background-color: #fff;
+}
+
+.noDataMessage {
+    text-align: center;
+    font-style: italic;
+    color: gray;
+    padding: 20px;
+}
+
+.tableWithFilter {
+    display: flex;
 }
 
 .heading {
     text-align: center;
+    text-decoration: underline;
 }
 
 .expand {
     cursor: pointer;
+}
+
+.noDataMessage {
+    text-align: center;
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import "../styles/Sort.css"
 
 const Sort = ({ sortOptions, sortBy, setSortBy, sortOrder, setSortOrder }) => {
     const selectSortOption = (e) => {
@@ -9,7 +10,7 @@ const Sort = ({ sortOptions, sortBy, setSortBy, sortOrder, setSortOrder }) => {
         setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')
     }
     return (
-        <div>
+        <div className="sortContainer">
             Sort by:
             <select onChange={selectSortOption}>
                 <option value="">Select option</option>

@@ -4,13 +4,18 @@ import { ReactComponent as Expand } from "../svg/Expand.svg"
 import ItemDetails from './ItemDetails';
 import Modal from '../genericComponents/Modal';
 import Sort from '../genericComponents/Sort';
-import { SORT_OPTIONS } from '../utils/constants';
+import { FILTER_OPTIONS, SORT_OPTIONS } from '../utils/constants';
+import Filter from '../genericComponents/Filter';
 
 function DataDashboard() {
     const [dashboardData, setDashboardData] = useState([])
     const [selectedItemId, setSelectedItemId] = useState(null);
     const [sortBy, setSortBy] = useState(null);
     const [sortOrder, setSortOrder] = useState('asc');
+    const [selectedFilters, setSelectedFilters] = useState({
+        "Category": "",
+        "Engagement score": "",
+    });
     useEffect(() => {
         fetchDashboardData()
     }, [])
@@ -34,10 +39,20 @@ function DataDashboard() {
         setSelectedItemId(null)
     }
     const ItemDetailsModal = Modal(ItemDetails)
-
-    // Sorting logic
+    // Filterering
+    const filteredData = dashboardData.filter((item) => {
+        return Object.entries(selectedFilters).every(([key, value]) => {
+            if (!value) return true; // Ignore empty filters
+            if (key === "Engagement score") {
+                if (value === "<500") return item.engagement < 500;
+                if (value === ">500") return item.engagement > 500;
+            }
+            return item[key.toLowerCase()] === value;
+        });
+    });
+    // Sorting 
     const sortedData = sortBy !== null
-        ? [...dashboardData].sort((a, b) => {
+        ? [...filteredData].sort((a, b) => {
             const aValue = sortBy === 0 ? a.engagement : a.reach;
             const bValue = sortBy === 0 ? b.engagement : b.reach;
 
@@ -45,38 +60,71 @@ function DataDashboard() {
                 ? aValue - bValue
                 : bValue - aValue;
         })
-        : dashboardData;
+        : filteredData;
+    const handleFilterChange = (filterKey, selectedValue) => {
+        setSelectedFilters((prev) => ({
+            ...prev,
+            [filterKey]: selectedValue,
+        }));
+    };
     return (
         <div className="dashboard">
             <h1 className="heading">Data Dashboard</h1>
-            <Sort sortOptions={SORT_OPTIONS} sortBy={sortBy} setSortBy={setSortBy} sortOrder={sortOrder} setSortOrder={setSortOrder} />
-            <table border="1" className="dashboardTable">
-                <thead>
-                    <tr>
-                        <th>Name/Title</th>
-                        <th>Engagement score</th>
-                        <th>Reach</th>
-                        <th>Category</th>
-                        <th>Location</th>
-                        <th>Button</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {sortedData?.map((item) => {
-                        return (
-                            <tr key={item?.id}>
-                                <td>{item?.name}</td>
-                                <td>{item?.engagement}</td>
-                                <td>{item?.reach.toFixed(2)}</td>
-                                <td>{item?.category}</td>
-                                <td>{item?.location}</td>
-                                <td title="View Details"><Expand className="expand" width="10" height="10" onClick={() => setSelectedItemId(item.id)} /></td>
-                                {selectedItemId === item?.id && <ItemDetailsModal key={item?.id} isOpen={selectedItemId} close={closeItemDetailsModal} data={item} />}
+            <div className="dashboardTableContainer">
+                <Sort className="sort" sortOptions={SORT_OPTIONS} sortBy={sortBy} setSortBy={setSortBy} sortOrder={sortOrder} setSortOrder={setSortOrder} />
+                <div className="tableWithFilter">
+                    <Filter filters={FILTER_OPTIONS} selectedFilters={selectedFilters} onFilterChange={handleFilterChange} />
+                    <table border="1" className="dashboardTable">
+                        <thead>
+                            <tr>
+                                <th>Name/Title</th>
+                                <th>Engagement score</th>
+                                <th>Reach</th>
+                                <th>Category</th>
+                                <th>Location</th>
+                                <th>Button</th>
                             </tr>
-                        );
-                    })}
-                </tbody>
-            </table>
+                        </thead>
+                        {sortedData.length > 0 ? (
+                            <tbody>
+                                {sortedData.map((item) => (
+                                    <tr key={item.id}>
+                                        <td>{item.name}</td>
+                                        <td>{item.engagement}</td>
+                                        <td>{item.reach.toFixed(2)}</td>
+                                        <td>{item.category}</td>
+                                        <td>{item.location}</td>
+                                        <td title="View Details">
+                                            <Expand
+                                                className="expand"
+                                                width="10"
+                                                height="10"
+                                                onClick={() => setSelectedItemId(item.id)}
+                                            />
+                                        </td>
+                                        {selectedItemId === item.id && (
+                                            <ItemDetailsModal
+                                                key={item.id}
+                                                isOpen={selectedItemId}
+                                                close={closeItemDetailsModal}
+                                                data={item}
+                                            />
+                                        )}
+                                    </tr>
+                                ))}
+                            </tbody>
+                        ) : (
+                            <tbody>
+                                <tr>
+                                    <td colSpan="6" className="noDataMessage">
+                                        No data available for the selected filters and sorting criteria.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        )}
+                    </table>
+                </div>
+            </div>
         </div>
     );
 }
