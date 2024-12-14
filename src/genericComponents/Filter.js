@@ -10,6 +10,7 @@ const Filter = ({ filters, selectedFilters, onFilterChange }) => {
         return (
           <div key={index} className="filterSelect">
             <select
+            className="filterSelect"
               value={selectedFilters[key]}
               onChange={(e) =>
                 onFilterChange(key, e.target.value)

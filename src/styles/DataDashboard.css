@@ -10,10 +10,12 @@
 .dashboardTable td {
     padding: 10px 14px;
     text-align: center;
+    word-wrap: break-word;
 }
 
 .dashboardTable {
     border-collapse: collapse;
+    width: 100%;
 }
 
 .dashboardTable th {
@@ -47,4 +49,39 @@
 
 .noDataMessage {
     text-align: center;
+}
+
+@media (max-width: 768px) {
+
+    .dashboardTable th,
+    .dashboardTable td {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    .heading {
+        font-size: 18px;
+    }
+
+    .dashboardTableContainer {
+        margin-top: 40px;
+    }
+
+    .tableWithFilter {
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .dashboardTable th,
+    .dashboardTable td {
+        font-size: 0.75rem;
+        padding: 2px;
+    }
+
+    .heading {
+        font-size: 16px;
+    }
 }

@@ -12,7 +12,7 @@ const Sort = ({ sortOptions, sortBy, setSortBy, sortOrder, setSortOrder }) => {
     return (
         <div className="sortContainer">
             Sort by:
-            <select onChange={selectSortOption}>
+            <select onChange={selectSortOption} className="sortSelect">
                 <option value="">Select option</option>
                 {sortOptions.map((option, index) => (
                     <option key={option} value={index}>{option}</option>

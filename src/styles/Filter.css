@@ -4,3 +4,8 @@
     gap: 8px;
     margin-right: 10px;
 }
+@media (max-width: 480px) {
+    .filterSelect {
+      font-size: 0.75rem;
+    }
+  }

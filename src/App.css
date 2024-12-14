@@ -5,3 +5,9 @@
   align-items: center;
   font-family: sans-serif;
 }
+
+@media (max-width: 480px) {
+  .app {
+    font-size: 0.8rem;
+  }
+}
