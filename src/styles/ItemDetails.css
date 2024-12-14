@@ -1,5 +1,8 @@
 .detailsContainer {
     padding: 20px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 .engagementHistoryList {
@@ -12,6 +15,10 @@
 
 .value {
     margin-left: 2px;
+}
+
+.heading {
+    margin-bottom: 10px;
 }
 
 @media (max-width: 480px) {

@@ -1,5 +1,7 @@
 .dashboard {
     margin-top: 40px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .dashboardTableContainer {
@@ -19,7 +21,7 @@
 }
 
 .dashboardTable th {
-    background-color: #f4f4f4;
+    background-color: #bdf7f7;
     font-weight: bold;
 }
 

@@ -85,7 +85,7 @@ function DataDashboard() {
                                 <th>Button</th>
                             </tr>
                         </thead>
-                        {sortedData.length > 0 ? (
+                        {sortedData?.length > 0 ? (
                             <tbody>
                                 {sortedData.map((item) => (
                                     <tr key={item.id}>

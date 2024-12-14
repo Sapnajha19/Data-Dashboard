@@ -1,9 +1,14 @@
+* {
+  margin: 0;
+}
+
 .app {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   font-family: sans-serif;
+  background-color: #eaf3f3;
+  height: 100vh;
 }
 
 @media (max-width: 480px) {
