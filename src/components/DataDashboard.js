@@ -94,12 +94,13 @@ function DataDashboard() {
                                         <td>{item.reach.toFixed(2)}</td>
                                         <td>{item.category}</td>
                                         <td>{item.location}</td>
-                                        <td title="View Details">
+                                        <td>
                                             <Expand
                                                 className="expand"
                                                 width="10"
                                                 height="10"
                                                 onClick={() => setSelectedItemId(item.id)}
+                                                title="View Details"
                                             />
                                         </td>
                                         {selectedItemId === item.id && (

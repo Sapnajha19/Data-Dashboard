@@ -18,7 +18,8 @@ const Sort = ({ sortOptions, sortBy, setSortBy, sortOrder, setSortOrder }) => {
                     <option key={option} value={index}>{option}</option>
                 ))}
             </select>
-            <button className="sortOrder" onClick={toggleSortOrder} disabled={sortBy === null} title={sortBy !== null && `Sort in ${sortOrder} order`}>
+            <button className="sortOrder" onClick={toggleSortOrder} disabled={sortBy === null} title={sortBy !== null ? `Sort in ${sortOrder} order` : undefined}
+            >
                 {sortOrder === 'asc' ? '↑' : '↓'}
             </button>
         </div>
