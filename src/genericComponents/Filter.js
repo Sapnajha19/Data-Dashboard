@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import "../styles/Filter.css";
 
 const Filter = ({ filters, selectedFilters, onFilterChange }) => {
@@ -32,4 +32,4 @@ const Filter = ({ filters, selectedFilters, onFilterChange }) => {
   );
 };
 
-export default Filter;
+export default memo(Filter);

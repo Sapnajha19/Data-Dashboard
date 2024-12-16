@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import "../styles/Sort.css"
 
 const Sort = ({ sortOptions, sortBy, setSortBy, sortOrder, setSortOrder }) => {
@@ -26,4 +26,4 @@ const Sort = ({ sortOptions, sortBy, setSortBy, sortOrder, setSortOrder }) => {
     )
 }
 
-export default Sort
+export default memo(Sort)

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import '../styles/DataDashboard.css';
 import { ReactComponent as Expand } from "../svg/Expand.svg"
 import ItemDetails from './ItemDetails';
@@ -61,12 +61,12 @@ function DataDashboard() {
                 : bValue - aValue;
         })
         : filteredData;
-    const handleFilterChange = (filterKey, selectedValue) => {
+    const handleFilterChange = useCallback((filterKey, selectedValue) => {
         setSelectedFilters((prev) => ({
             ...prev,
             [filterKey]: selectedValue,
         }));
-    };
+    }, [])
     return (
         <div className="dashboard">
             <h1 className="heading">Data Dashboard</h1>
@@ -103,14 +103,6 @@ function DataDashboard() {
                                                 title="View Details"
                                             />
                                         </td>
-                                        {selectedItemId === item.id && (
-                                            <ItemDetailsModal
-                                                key={item.id}
-                                                isOpen={selectedItemId}
-                                                close={closeItemDetailsModal}
-                                                data={item}
-                                            />
-                                        )}
                                     </tr>
                                 ))}
                             </tbody>
@@ -126,6 +118,13 @@ function DataDashboard() {
                     </table>
                 </div>
             </div>
+            {selectedItemId && (
+                <ItemDetailsModal
+                    isOpen={selectedItemId}
+                    close={closeItemDetailsModal}
+                    data={dashboardData.find((item) => item.id === selectedItemId)}
+                />
+            )}
         </div>
     );
 }
